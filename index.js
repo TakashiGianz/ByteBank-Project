@@ -49,4 +49,4 @@ console.log(
 );
 console.log(`Gerente logou? ${gerenteEstaLogado}`);
 console.log(`Diretor logou? ${diretorEstaLogado}`);
-console.log(`Cliente logou? ${diretorEstaLogado}`);
+console.log(`Cliente logou? ${clienteEstaLogado}`);
