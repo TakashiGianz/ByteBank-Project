@@ -1,7 +1,7 @@
 {
   "name": "bytebank",
   "version": "1.0.0",
-  "description": "ByteBank Project by Alura ",
+  "description": "ByteBank Project",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
