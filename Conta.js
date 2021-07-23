@@ -1,17 +1,46 @@
+// Classe Base "Abstrata"
 export class Conta {
 
     constructor(saldoInicial, cliente, agencia){
+        if(this.constructor == Conta){
+            throw new Error(`Você não deveria instanciar um objeto do tipo Conta diretamente, classe abstrata.`);
+        }
+
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
     } 
 
-    // Métodos
-    sacar(valor){
-        if(this._saldo <= valor) return ;
+    // Assessores
+    set cliente(novoValor){
+        if (novoValor instanceof Cliente) {
+            this._cliente = novoValor;
+        }
+    }
 
-        this._saldo -= valor;
-        return valor;
+    get cliente(){
+        return this._cliente;
+    }
+
+    get saldo(){
+        return this._saldo;
+    }    
+
+    // Métodos
+
+    // Método Abstrato
+    sacar(valor){
+        throw new Error(`O método sacar da Conta é abstrato`);
+    }
+
+    _sacar(valor, taxa){
+        const valorSacado = taxa * valor;
+        if(this._saldo >= valorSacado){
+            this._saldo -= valorSacado;
+            return valorSacado;
+        }
+
+        return 0;
     }
 
     depositar(valor){
